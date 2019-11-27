@@ -1,0 +1,35 @@
+{
+  "name": "hexo-site",
+  "version": "0.0.0",
+  "private": true,
+  "hexo": {
+    "version": "4.0.0"
+  },
+  "dependencies": {
+    "babel-eslint": "^10.0.3",
+    "core-js": "^3.4.4",
+    "eslint": "^6.7.1",
+    "hexo": "^4.0.0",
+    "hexo-deployer-git": "^2.1.0",
+    "hexo-douban": "^1.1.3",
+    "hexo-generator-archive": "^1.0.0",
+    "hexo-generator-baidu-sitemap": "^0.1.6",
+    "hexo-generator-category": "^1.0.0",
+    "hexo-generator-cname": "^0.3.0",
+    "hexo-generator-feed": "^2.1.1",
+    "hexo-generator-index": "^1.0.0",
+    "hexo-generator-search": "^2.4.0",
+    "hexo-generator-sitemap": "^2.0.0",
+    "hexo-generator-tag": "^1.0.0",
+    "hexo-inject": "^1.0.0",
+    "hexo-renderer-ejs": "^1.0.0",
+    "hexo-renderer-kramed": "^0.1.4",
+    "hexo-renderer-markdown-it-plus": "^1.0.4",
+    "hexo-renderer-marked": "^2.0.0",
+    "hexo-renderer-mathjax": "^0.6.0",
+    "hexo-renderer-stylus": "^1.1.0",
+    "hexo-server": "^1.0.0",
+    "hexo-tag-spotify": "^1.1.0",
+    "markdown-it-katex": "^2.0.3"
+  }
+}

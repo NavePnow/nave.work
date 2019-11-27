@@ -1,0 +1,10 @@
+{
+  "name" : "source",
+  "fileExtension" : ".md",
+  "autoUploadInsertedImageKey" : "blogphoto-ap-beijing",
+  "autoUploadInsertedImage" : true,
+  "folderType" : 11,
+  "mediaFloder" : "images",
+  "orderBy" : 0,
+  "newlinesToBR" : 0
+}
