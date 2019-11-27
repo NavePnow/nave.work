@@ -1,7 +1,8 @@
 # nave.work
 
 > My lovely blog
-[![Build Status](https://travis-ci.org/NavePnow/nave.work.svg?branch=master)](https://travis-ci.org/NavePnow/nave.work)[![dependencies Status](https://david-dm.org/NavePnow/nave.work/status.svg)](https://david-dm.org/NavePnow/nave.work)
+
+[![Build Status](https://travis-ci.org/NavePnow/nave.work.svg?branch=master)](https://travis-ci.org/NavePnow/nave.work) [![dependencies Status](https://david-dm.org/NavePnow/nave.work/status.svg)](https://david-dm.org/NavePnow/nave.work)
 
 ## **About me**
 
