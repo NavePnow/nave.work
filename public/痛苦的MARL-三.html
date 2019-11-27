@@ -182,10 +182,8 @@
         </h1>
         <div class="content">
             <h1 id="多智能体强化学习入门（三）——MFMARL算法（Mean-Field-Multi-Agent-RL）"><a href="#多智能体强化学习入门（三）——MFMARL算法（Mean-Field-Multi-Agent-RL）" class="headerlink" title="多智能体强化学习入门（三）——MFMARL算法（Mean Field Multi-Agent RL）"></a>多智能体强化学习入门（三）——MFMARL算法（Mean Field Multi-Agent RL）</h1><a id="more"></a>
-<p><strong>Idea</strong>:将传统的多智能体算法（每个智能体都需考虑其他所有智能体的动作以及状态得到联合动作值函数）替换成一种近似假设（其他所有智能体对其产生的作用可以用一个均值替代）—MFT 平均场理论<br>Based on MFT, there are two basic algoritms: MFQ &amp; MFAC. （分别是对 Q learning 和 AC 算法的改进）</p>
-<h2 id="1-Mean-Field-MARL"><a href="#1-Mean-Field-MARL" class="headerlink" title="1. Mean Field MARL"></a>1. Mean Field MARL</h2><p><strong>Idea</strong>: 将 Q 函数中的参数调整为只包含邻居之间相互作用的形式：</p>
-<script type="math/tex; mode=display">
-    Q_j(s,a)=\frac{1}{N_j}\sum _{k\epsilon N_{(j)}}Q_j(s,a_j,a_k)</script><p>其中$N_j$表示邻居节点个数，状态信息 s 为全局信息。</p>
+<p><strong>Idea</strong>:将传统的多智能体算法（每个智能体都需考虑其他所有智能体的动作以及状态得到联合动作值函数）替换成一种近似假设（其他所有智能体对其产生的作用可以用一个均值替代）–MFT 平均场理论<br>Based on MFT, there are two basic algoritms: MFQ &amp; MFAC. （分别是对 Q learning 和 AC 算法的改进）</p>
+<h2 id="1-Mean-Field-MARL"><a href="#1-Mean-Field-MARL" class="headerlink" title="1. Mean Field MARL"></a>1. Mean Field MARL</h2><p><strong>Idea</strong>: 将 Q 函数中的参数调整为只包含邻居之间相互作用的形式：<br>$$<br>    Q_j(s,a)=\frac{1}{N_j}\sum <em>{k\epsilon N</em>{(j)}}Q_j(s,a_j,a_k)<br>$$<br>其中$N_j$表示邻居节点个数，状态信息 s 为全局信息。</p>
 <h3 id="1-Mean-Field-近似"><a href="#1-Mean-Field-近似" class="headerlink" title="1. Mean Field 近似"></a>1. Mean Field 近似</h3><h3 id="2-算法设计"><a href="#2-算法设计" class="headerlink" title="2. 算法设计"></a>2. 算法设计</h3><p>MF-Q + MF-AC Algorithm</p>
 <h4 id="1-MF-Q"><a href="#1-MF-Q" class="headerlink" title="1. MF-Q"></a>1. MF-Q</h4><h4 id="2-MFAC"><a href="#2-MFAC" class="headerlink" title="2. MFAC"></a>2. MFAC</h4>
         </div>
@@ -213,9 +211,9 @@
             <span class="is-size-6 has-text-grey has-mr-7">#&nbsp;Recommend Posts</span>
 <br>
 
-    &nbsp;1.<a href="/Hexo%E4%B8%BB%E9%A2%98%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0-%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E8%B1%86%E7%93%A3%E5%92%8C%E8%81%8A%E5%A4%A9%E6%8F%92%E4%BB%B6.html" class="is-size-6" target="_blank">Hexo主题折腾日记(二) 添加豆瓣和聊天插件</a><br>
+    &nbsp;1.<a href="/Hexo%E4%B8%BB%E9%A2%98%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0-%E4%BB%8Ecactus%E5%88%B0icarus.html" class="is-size-6" target="_blank">Hexo主题折腾日记(一) 从cactus到icarus</a><br>
 
-    &nbsp;2.<a href="/Hexo%E4%B8%BB%E9%A2%98%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0-%E4%BB%8Ecactus%E5%88%B0icarus.html" class="is-size-6" target="_blank">Hexo主题折腾日记(一) 从cactus到icarus</a><br>
+    &nbsp;2.<a href="/Hexo%E4%B8%BB%E9%A2%98%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0-%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E8%B1%86%E7%93%A3%E5%92%8C%E8%81%8A%E5%A4%A9%E6%8F%92%E4%BB%B6.html" class="is-size-6" target="_blank">Hexo主题折腾日记(二) 添加豆瓣和聊天插件</a><br>
 
     &nbsp;3.<a href="/%E4%B8%80%E4%BA%A9%E4%B8%89%E5%88%86%E5%9C%B0%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0%E8%84%9A%E6%9C%AC.html" class="is-size-6" target="_blank">一亩三分地自动签到脚本</a><br>
 

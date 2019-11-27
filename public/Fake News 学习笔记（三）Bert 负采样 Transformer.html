@@ -196,7 +196,7 @@
 <h3 id="position-encoding"><a href="#position-encoding" class="headerlink" title="position encoding:"></a><strong>position encoding:</strong></h3><p>因为transformer既没有RNN的recurrence也没有CNN的convolution，但序列顺序信息很重要，比如你欠我100万明天要还和我欠你100万明天要还的含义截然不同。。。<br>　transformer计算token的位置信息这里使用正弦波，类似模拟信号传播周期性变化。这样的循环函数可以一定程度上增加模型的泛化能力。<br>　　但BERT直接训练一个position embedding来保留位置信息，每个位置随机初始化一个向量，加入模型训练，最后就得到一个包含位置信息的embedding（简单粗暴。。），最后这个position embedding和word embedding的结合方式上，BERT选择直接拼接。<br><img src="https://i.loli.net/2019/08/11/mnRFiSh8MkjHA5I.png" alt="Output"></p>
 <h2 id="Google-Bert"><a href="#Google-Bert" class="headerlink" title="Google Bert"></a>Google Bert</h2><p>NLP任务分为两部分，其一是预训练产生<strong>词向量</strong>，其二是对词向量进行操作(下游 NLP 任务)</p>
 <h3 id="预训练产生词向量"><a href="#预训练产生词向量" class="headerlink" title="预训练产生词向量"></a>预训练产生词向量</h3><p>相比于之前所用到的 word2vec，负采样从 word-level 升级到了 sentence-level ，从而可以获取句间关系。<br>Bert 使用双向encoding(模型在处理某一个词时，它能同时利用前面的词和后面的词两部分信息)，采用看不懂的 Transformer 结构，直接获得一整个句子的唯一向量表示。在 Transformer 结构中，最终的输入由下面 3 个embedding 组成。<br><img src="https://i.loli.net/2019/08/11/jdZ792TAniEIPhY.jpg" alt="Input"><br>EA 表示左句子，EB 表示右句子，CLS为特殊标记符，供 Transformer 对 CLS进行深度 embedding</p>
-<h3 id="预训练模型和加载的训练集之间的关系"><a href="#预训练模型和加载的训练集之间的关系" class="headerlink" title="预训练模型和加载的训练集之间的关系"></a>预训练模型和加载的训练集之间的关系</h3><p>使用预先训练的模型，该模型已经在大型数据集上进行了训练，然后针对特定任务进行微调。</p>
+<p>###预训练模型和加载的训练集之间的关系<br>使用预先训练的模型，该模型已经在大型数据集上进行了训练，然后针对特定任务进行微调。</p>
 <h3 id="下游-NLP-任务"><a href="#下游-NLP-任务" class="headerlink" title="下游 NLP 任务"></a>下游 NLP 任务</h3><p>在获得 Bert 词向量后，只需要在词向量上加入简单的分类器即可完成工作</p>
 
         </div>
@@ -224,9 +224,9 @@
             <span class="is-size-6 has-text-grey has-mr-7">#&nbsp;Recommend Posts</span>
 <br>
 
-    &nbsp;1.<a href="/Hexo%E4%B8%BB%E9%A2%98%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0-%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E8%B1%86%E7%93%A3%E5%92%8C%E8%81%8A%E5%A4%A9%E6%8F%92%E4%BB%B6.html" class="is-size-6" target="_blank">Hexo主题折腾日记(二) 添加豆瓣和聊天插件</a><br>
+    &nbsp;1.<a href="/Hexo%E4%B8%BB%E9%A2%98%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0-%E4%BB%8Ecactus%E5%88%B0icarus.html" class="is-size-6" target="_blank">Hexo主题折腾日记(一) 从cactus到icarus</a><br>
 
-    &nbsp;2.<a href="/Hexo%E4%B8%BB%E9%A2%98%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0-%E4%BB%8Ecactus%E5%88%B0icarus.html" class="is-size-6" target="_blank">Hexo主题折腾日记(一) 从cactus到icarus</a><br>
+    &nbsp;2.<a href="/Hexo%E4%B8%BB%E9%A2%98%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0-%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E8%B1%86%E7%93%A3%E5%92%8C%E8%81%8A%E5%A4%A9%E6%8F%92%E4%BB%B6.html" class="is-size-6" target="_blank">Hexo主题折腾日记(二) 添加豆瓣和聊天插件</a><br>
 
     &nbsp;3.<a href="/%E4%B8%80%E4%BA%A9%E4%B8%89%E5%88%86%E5%9C%B0%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0%E8%84%9A%E6%9C%AC.html" class="is-size-6" target="_blank">一亩三分地自动签到脚本</a><br>
 
