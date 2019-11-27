@@ -12,13 +12,14 @@ install:
   - npm install
 git:
     submodules: false
-    
+
 # before_script:
 #   - git config user.name "NavePnow"
 #   - git config user.email "evan.wong.stu@gmail.com"
 #   - sed -i'' "s~https://github.com/<yourname>/<reponame>.git~https://${GITHUB_ACCESS_TOKEN}@github.com/<yourname>/<reopname>.git~" _config.yml
 script:
-#  - hexo clean
+  - hexo clean
+  - hexo douban
   - hexo g
   - hexo d
 
