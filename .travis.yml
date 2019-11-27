@@ -20,8 +20,8 @@ git:
 script:
   - hexo clean
   - hexo douban
-  - hexo g
-  - hexo d
+  - hexo generate
+  - hexo deploy
 
 after_script:
   - cd ./public
