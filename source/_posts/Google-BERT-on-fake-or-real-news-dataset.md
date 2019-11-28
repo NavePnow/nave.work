@@ -3,7 +3,7 @@ title: Google-BERT-on-fake_or_real-news-dataset
 tags: [NLP, Python]
 categories:
   - FakeNews
-toc: false
+toc: true
 date: 2019-08-23 11:59:01
 thumbnail: https://images.unsplash.com/photo-1542827866-3e48c943da0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
 ---
