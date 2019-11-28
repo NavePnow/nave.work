@@ -1,7 +1,7 @@
 ---
 title: Hexo主题折腾日记(一) 从cactus到icarus
 date: 2019-11-16 10:59:11
-tags: [JS]
+tags: [JavaScript]
 categories:
 thumbnail: https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60
 recommend: 1
