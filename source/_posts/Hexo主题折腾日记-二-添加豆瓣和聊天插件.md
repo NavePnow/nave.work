@@ -40,12 +40,14 @@ douban:
     ```
     
 说明:
+
 - user: 你的豆瓣ID.打开豆瓣，登入账户，然后在右上角点击 "个人主页" ，这时候地址栏的URL大概是这样："https://www.douban.com/people/xxxxxx/" ，其中的"xxxxxx"就是你的个人ID了。
 - builtin: 是否将生成页面的功能嵌入hexo s和hexo g中，默认是false,另一可选项为true, 如果豆瓣更新频率不高建议选择false，没有必要再每一次部署的时候重新生成豆瓣的页面
 - title: 该页面的标题.
 - quote: 写在页面开头的一段话,支持html语法.
 - timeout: 爬取数据的超时时间，默认是 10000ms ,如果在使用时发现报了超时的错(ETIMEOUT)可以把这个数据设置的大一点。
 如果只想显示某一个页面(比如movie)，那就把其他的配置项注释掉即可。
+
 3. 修改/layout/common/article.ejs
  ```diff
 <%- list_categories(post.categories, {
@@ -72,7 +74,7 @@ douban:
  ```
 4. 测试并发布
  `hexo douban -bgm && hexo server`
- 如果终端没有报错且网页 `http://localhost:4000/books` `http://localhost:4000/movies`  `http://localhost:4000/movies` 没有问题，就可以直接发布了，这里注意 bgm = books+ games+ movies, 如果前面的配置中只选择了 books，那这里只需要 `hexo douban -b`即可，其他同理。
+ 如果终端没有报错且网页 `http://localhost:4000/books`, `http://localhost:4000/movies`, `http://localhost:4000/movies` 没有问题，就可以直接发布了，这里注意 bgm = books+ games+ movies, 如果前面的配置中只选择了 books，那这里只需要 `hexo douban -b` 即可，其他同理。
  
 5. 主题文件修改
 在对应主题的 `_config.xml` 文件 menu 模块添加对应的配置，示例如下。

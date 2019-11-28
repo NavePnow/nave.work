@@ -140,10 +140,12 @@ toc: true
     </div>
     </div>
     ```
+
 ## 置顶文章
 参考文章: `https://removeif.github.io/2019/09/19/%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%88%86%E4%BA%AB.html#more`
 
 [github commit history](https://github.com/removeif/hexo-theme-icarus-removeif/commit/a924e02916607ed351904e4833c541199807482d)
+
 ### 实现效果
 <center>
 <img src="https://raw.githubusercontent.com/NavePnow/blog_photo/master/screenshot 2019-11-16 at 13.30.30.png" height="40%" width="40%">
@@ -161,6 +163,7 @@ toc: true
     tags: 
     categories: 
     ```
+
 ### 配置
 修改 /layout/common/article.ejs
     ```diff
@@ -179,6 +182,7 @@ toc: true
 参考文章: `https://removeif.github.io/2019/09/19/%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%88%86%E4%BA%AB.html#more`
 
 [github commit history](https://github.com/removeif/hexo-theme-icarus-removeif/commit/8fb8c23b8e3861fd56aa983f3eac8b0dbe18162d)
+
 ### 实现效果
 <center>
 <img src="https://raw.githubusercontent.com/NavePnow/blog_photo/master/screenshot 2019-11-16 at 11.59.42.png" height="80%" width="80%">
@@ -196,6 +200,7 @@ toc: true
     tags: 
     categories: 
     ```
+
 ### 配置
 1. 在 languages/xx.yml 中插入 recommend_posts，具体如下
     ```diff
@@ -251,6 +256,7 @@ toc: true
         &nbsp;<%=i %>.<a href="<%- url_for((post.link?post.link:post.path)) %>" class="is-size-6" target="_blank"><%= post.title %></a><br>
         <% i++;}) %> 
     ```
+
 4. /layout/widget 目录下添加 recommend_posts.locals.js
     ```
         module.exports = (ctx, locals) => {
@@ -272,11 +278,13 @@ toc: true
         return Object.assign(locals, { thumbnail, posts: _posts });
         } 
     ```
+
 ## 页脚访问人数显示修改
 ### 实现效果  
 <center>
 <img src="https://raw.githubusercontent.com/NavePnow/blog_photo/master/screenshot 2019-11-17 at 18.25.58.png">
 </center>
+
 ### 配置
 修改 /layout/common/footer.ejs 卜算子部分.
 ```
