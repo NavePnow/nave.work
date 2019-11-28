@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  lang="en">
 <head>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8" />
+    <meta charset="utf-8" />
 
 <meta name="generator" content="Hexo 4.0.0" />
 
@@ -80,11 +80,11 @@
     <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
-<script src="/js/globalUtils.js"></script>
-<link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- <script src="/js/globalUtils.js"></script> -->
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-2-column">
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
+    <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -118,9 +118,9 @@
                 
                 
                 <!--comment -->
-                <a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;" target="_blank" rel="noopener">
+                <!-- <a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-moon" id="night-icon"></i>
-                </a>
+                </a> -->
                 <!--comment -->
                 
                 <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
@@ -132,7 +132,7 @@
         </div>
     </div>
 </nav>
-    <script type="text/javascript" src="/js/theme-setting.js"></script>
+    <!-- <script type="text/javascript" src="/js/theme-setting.js"></script> -->
      
     <section class="section">
         <div class="container">
@@ -181,19 +181,19 @@
             
         </h1>
         <div class="content">
-            <h1 id="One-hot-coding-独热编码"><a href="#One-hot-coding-独热编码" class="headerlink" title="One-hot coding(独热编码)"></a>One-hot coding(独热编码)</h1><a id="more"></a>
-<p>果然又是 1个半小时只记住专有名字的课程。<br><strong>target</strong>:将非数值类型量化数值类型，以便于模型的输入<br><strong>process</strong>:N位状态寄存器来对N个状态进行编码就是将所有状态排列，具有哪些状态就将状态进行标记<br><strong>instance</strong>:<br>face = [‘handsome’,’ugly’]<br>stature = [‘tall’,’middle’,’short’]<br>country = [‘Chinese’,’American,’Japan’,’korea’]<br>共有 9 种状态，用 9 位数字表示。<br>[‘handsome’,’tall’,’Japan’] 表示为 101000010<br>[‘ugly’,’short’,’Japan’] 表示为 010010010</p>
-<h1 id="Bag-of-words"><a href="#Bag-of-words" class="headerlink" title="Bag of words"></a>Bag of words</h1><p>不考虑单词在文章中的顺序，只考虑单词在文章中的词频率(occurence)</p>
-<h1 id="Stemming-and-Lemmatizing"><a href="#Stemming-and-Lemmatizing" class="headerlink" title="Stemming and Lemmatizing"></a>Stemming and Lemmatizing</h1><p><strong>cliche</strong>:normalize different forms of the same word to a single root token before indexing<br>stemming can often create non-existent words, whereas lemmas are actual words.</p>
-<h2 id="Stemming"><a href="#Stemming" class="headerlink" title="Stemming"></a>Stemming</h2><p>找词根(chops off the endings of different forms of words) “derivational affixes”<br><strong>questions</strong>:some decorations like ir or un, some of them will be deleted? eg:unchange to change (not implentation)</p>
-<h2 id="Lemmatizing"><a href="#Lemmatizing" class="headerlink" title="Lemmatizing"></a>Lemmatizing</h2><p>根据词典找单词本身的形式 eg: saw to see</p>
-<h1 id="Word2Vec"><a href="#Word2Vec" class="headerlink" title="Word2Vec"></a>Word2Vec</h1><p><strong>cliche</strong>:Word2Vec使用一层神经网络将one-hot（独热编码）形式的词向量映射到分布式形式的词向量。使用了Hierarchical softmax， negative sampling等技巧进行训练速度上的优化.<br>在前文中介绍了 one-hot coding，但是由于英文单词词汇量巨大的特征，每一个单词都对应上文例子中的 feature，可想而知，会造成维度灾难和数据稀疏的问题（妈的，上课这个东西讲了近 40min），所以使用Word2Vec能够解决这些问题。</p>
-<h2 id="TD-IDF"><a href="#TD-IDF" class="headerlink" title="TD-IDF"></a>TD-IDF</h2><p>评估一字词对于一个文件集或一个语料库中的其中一份文件的重要程度，TF意思是词频(Term Frequency)，IDF意思是逆文本频率指数(Inverse Document Frequency)。</p>
-<h2 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h2><p>把一些输入映射为0-1之间的实数，并且归一化保证和为1</p>
-<h2 id="CBOW-Continous-Bag-of-Words"><a href="#CBOW-Continous-Bag-of-Words" class="headerlink" title="CBOW(Continous Bag of Words)"></a>CBOW(Continous Bag of Words)</h2><p>已知词w上下文context(w)前提下，预测当前词w</p>
-<h2 id="skip-gram"><a href="#skip-gram" class="headerlink" title="skip-gram"></a>skip-gram</h2><p>已知当前词w，预测其上下文context(w)</p>
-<h2 id="distributed-representation"><a href="#distributed-representation" class="headerlink" title="distributed representation"></a>distributed representation</h2><p>通过训练得到每个词k 维实数向量，通过词间距离来计算词间相似度。<br>通过训练，将每一个词映射到一个固定长度的短向量中，把词的信息分布到各个分量中，并且语义相近的词向量见距离越近</p>
-<h2 id="参数设置"><a href="#参数设置" class="headerlink" title="参数设置"></a>参数设置</h2><p>size: Number of dimensions for the word embedding model<br>window: Number of context words to observe in each direction<br>min_count: Minimum frequency for words included in model<br>sg (Skip-Gram): ‘0’ indicates CBOW model; ‘1’ indicates Skip-Gram<br>alpha: Learning rate (initial); prevents model from over-correcting, enables finer tuning<br>iterations: Number of passes through dataset<br>batch_words: Number of words to sample from data during each pass</p>
+            <h1 id="one-hot-coding独热编码">One-hot coding(独热编码)</h1>
+<a id="more"></a>
+<p>果然又是 1个半小时只记住专有名字的课程。 <strong>target</strong>:将非数值类型量化数值类型，以便于模型的输入 <strong>process</strong>:N位状态寄存器来对N个状态进行编码就是将所有状态排列，具有哪些状态就将状态进行标记 <strong>instance</strong>: face = ['handsome','ugly'] stature = ['tall','middle','short'] country = ['Chinese','American,'Japan','korea'] 共有 9 种状态，用 9 位数字表示。 ['handsome','tall','Japan'] 表示为 101000010 ['ugly','short','Japan'] 表示为 010010010</p>
+<h1 id="bag-of-words">Bag of words</h1>
+<p>不考虑单词在文章中的顺序，只考虑单词在文章中的词频率(occurence)</p>
+<h1 id="stemming-and-lemmatizing">Stemming and Lemmatizing</h1>
+<p><strong>cliche</strong>:normalize different forms of the same word to a single root token before indexing stemming can often create non-existent words, whereas lemmas are actual words.</p>
+<h2 id="stemming">Stemming</h2>
+<p>找词根(chops off the endings of different forms of words) &quot;derivational affixes&quot; <strong>questions</strong>:some decorations like ir or un, some of them will be deleted? eg:unchange to change (not implentation) ## Lemmatizing 根据词典找单词本身的形式 eg: saw to see</p>
+<h1 id="word2vec">Word2Vec</h1>
+<p><strong>cliche</strong>:Word2Vec使用一层神经网络将one-hot（独热编码）形式的词向量映射到分布式形式的词向量。使用了Hierarchical softmax， negative sampling等技巧进行训练速度上的优化. 在前文中介绍了 one-hot coding，但是由于英文单词词汇量巨大的特征，每一个单词都对应上文例子中的 feature，可想而知，会造成维度灾难和数据稀疏的问题（妈的，上课这个东西讲了近 40min），所以使用Word2Vec能够解决这些问题。</p>
+<h2 id="td-idf">TD-IDF</h2>
+<p>评估一字词对于一个文件集或一个语料库中的其中一份文件的重要程度，TF意思是词频(Term Frequency)，IDF意思是逆文本频率指数(Inverse Document Frequency)。 ## softmax 把一些输入映射为0-1之间的实数，并且归一化保证和为1 ## CBOW(Continous Bag of Words) 已知词w上下文context(w)前提下，预测当前词w ## skip-gram 已知当前词w，预测其上下文context(w) ## distributed representation 通过训练得到每个词k 维实数向量，通过词间距离来计算词间相似度。 通过训练，将每一个词映射到一个固定长度的短向量中，把词的信息分布到各个分量中，并且语义相近的词向量见距离越近 ## 参数设置 size: Number of dimensions for the word embedding model window: Number of context words to observe in each direction min_count: Minimum frequency for words included in model sg (Skip-Gram): '0' indicates CBOW model; '1' indicates Skip-Gram alpha: Learning rate (initial); prevents model from over-correcting, enables finer tuning iterations: Number of passes through dataset batch_words: Number of words to sample from data during each pass</p>
 
         </div>
         
@@ -1021,6 +1021,6 @@ document.addEventListener('DOMContentLoaded', function () {
 <!--
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

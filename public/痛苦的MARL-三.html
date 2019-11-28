@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  lang="en">
 <head>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8" />
+    <meta charset="utf-8" />
 
 <meta name="generator" content="Hexo 4.0.0" />
 
@@ -80,11 +80,11 @@
     <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
-<script src="/js/globalUtils.js"></script>
-<link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- <script src="/js/globalUtils.js"></script> -->
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-2-column">
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
+    <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -118,9 +118,9 @@
                 
                 
                 <!--comment -->
-                <a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;" target="_blank" rel="noopener">
+                <!-- <a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-moon" id="night-icon"></i>
-                </a>
+                </a> -->
                 <!--comment -->
                 
                 <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
@@ -132,7 +132,7 @@
         </div>
     </div>
 </nav>
-    <script type="text/javascript" src="/js/theme-setting.js"></script>
+    <!-- <script type="text/javascript" src="/js/theme-setting.js"></script> -->
      
     <section class="section">
         <div class="container">
@@ -181,11 +181,17 @@
             
         </h1>
         <div class="content">
-            <h1 id="多智能体强化学习入门（三）——MFMARL算法（Mean-Field-Multi-Agent-RL）"><a href="#多智能体强化学习入门（三）——MFMARL算法（Mean-Field-Multi-Agent-RL）" class="headerlink" title="多智能体强化学习入门（三）——MFMARL算法（Mean Field Multi-Agent RL）"></a>多智能体强化学习入门（三）——MFMARL算法（Mean Field Multi-Agent RL）</h1><a id="more"></a>
-<p><strong>Idea</strong>:将传统的多智能体算法（每个智能体都需考虑其他所有智能体的动作以及状态得到联合动作值函数）替换成一种近似假设（其他所有智能体对其产生的作用可以用一个均值替代）–MFT 平均场理论<br>Based on MFT, there are two basic algoritms: MFQ &amp; MFAC. （分别是对 Q learning 和 AC 算法的改进）</p>
-<h2 id="1-Mean-Field-MARL"><a href="#1-Mean-Field-MARL" class="headerlink" title="1. Mean Field MARL"></a>1. Mean Field MARL</h2><p><strong>Idea</strong>: 将 Q 函数中的参数调整为只包含邻居之间相互作用的形式：<br>$$<br>    Q_j(s,a)=\frac{1}{N_j}\sum <em>{k\epsilon N</em>{(j)}}Q_j(s,a_j,a_k)<br>$$<br>其中$N_j$表示邻居节点个数，状态信息 s 为全局信息。</p>
-<h3 id="1-Mean-Field-近似"><a href="#1-Mean-Field-近似" class="headerlink" title="1. Mean Field 近似"></a>1. Mean Field 近似</h3><h3 id="2-算法设计"><a href="#2-算法设计" class="headerlink" title="2. 算法设计"></a>2. 算法设计</h3><p>MF-Q + MF-AC Algorithm</p>
-<h4 id="1-MF-Q"><a href="#1-MF-Q" class="headerlink" title="1. MF-Q"></a>1. MF-Q</h4><h4 id="2-MFAC"><a href="#2-MFAC" class="headerlink" title="2. MFAC"></a>2. MFAC</h4>
+            <h1 id="多智能体强化学习入门三mfmarl算法mean-field-multi-agent-rl">多智能体强化学习入门（三）——MFMARL算法（Mean Field Multi-Agent RL）</h1>
+<a id="more"></a>
+<p><strong>Idea</strong>:将传统的多智能体算法（每个智能体都需考虑其他所有智能体的动作以及状态得到联合动作值函数）替换成一种近似假设（其他所有智能体对其产生的作用可以用一个均值替代）--MFT 平均场理论 Based on MFT, there are two basic algoritms: MFQ &amp; MFAC. （分别是对 Q learning 和 AC 算法的改进） ## 1. Mean Field MARL <strong>Idea</strong>: 将 Q 函数中的参数调整为只包含邻居之间相互作用的形式： <span class="math display">\[
+    Q_j(s,a)=\frac{1}{N_j}\sum _{k\epsilon N_{(j)}}Q_j(s,a_j,a_k)
+\]</span> 其中<span class="math inline">\(N_j\)</span>表示邻居节点个数，状态信息 s 为全局信息。</p>
+<h3 id="mean-field-近似">1. Mean Field 近似</h3>
+<h3 id="算法设计">2. 算法设计</h3>
+<p>MF-Q + MF-AC Algorithm</p>
+<h4 id="mf-q">1. MF-Q</h4>
+<h4 id="mfac">2. MFAC</h4>
+
         </div>
         
         <div class="level is-size-7 is-uppercase">
@@ -1012,6 +1018,6 @@ document.addEventListener('DOMContentLoaded', function () {
 <!--
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  lang="en">
 <head>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8" />
+    <meta charset="utf-8" />
 
 <meta name="generator" content="Hexo 4.0.0" />
 
@@ -10,13 +10,13 @@
 <title>Fake News 学习笔记（一）分类器，f1 score - It Ain&#39;t me</title>
 
 
-    <meta name="description" content="NFL data美国职业橄榄球大联盟（National Football League，简称NFL）">
+    <meta name="description" content="NFL data 美国职业橄榄球大联盟（National Football League，简称NFL）">
 <meta name="keywords" content="NLP,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fake News 学习笔记（一）分类器，f1 score">
 <meta property="og:url" content="https:&#x2F;&#x2F;nave.work&#x2F;Fake%20News%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%86%E7%B1%BB%E5%99%A8%EF%BC%8Cf1%20score.html">
 <meta property="og:site_name" content="It Ain&#39;t me">
-<meta property="og:description" content="NFL data美国职业橄榄球大联盟（National Football League，简称NFL）">
+<meta property="og:description" content="NFL data 美国职业橄榄球大联盟（National Football League，简称NFL）">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;images.unsplash.com&#x2F;photo-1434030216411-0b793f4b4173?ixlib&#x3D;rb-1.2.1&amp;ixid&#x3D;eyJhcHBfaWQiOjEyMDd9&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;800&amp;q&#x3D;60">
 <meta property="og:updated_time" content="2019-11-16T12:11:09.429Z">
@@ -80,11 +80,11 @@
     <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
-<script src="/js/globalUtils.js"></script>
-<link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- <script src="/js/globalUtils.js"></script> -->
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-2-column">
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
+    <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -118,9 +118,9 @@
                 
                 
                 <!--comment -->
-                <a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;" target="_blank" rel="noopener">
+                <!-- <a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-moon" id="night-icon"></i>
-                </a>
+                </a> -->
                 <!--comment -->
                 
                 <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
@@ -132,7 +132,7 @@
         </div>
     </div>
 </nav>
-    <script type="text/javascript" src="/js/theme-setting.js"></script>
+    <!-- <script type="text/javascript" src="/js/theme-setting.js"></script> -->
      
     <section class="section">
         <div class="container">
@@ -181,15 +181,22 @@
             
         </h1>
         <div class="content">
-            <h2 id="NFL-data"><a href="#NFL-data" class="headerlink" title="NFL data"></a>NFL data</h2><p>美国职业橄榄球大联盟（National Football League，简称NFL）<a id="more"></a><br>你妹的，这教授我佛了。</p>
-<h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><p>在第一节课中，x 轴代表该队触地得分的次数，y 轴代表该队是否胜利，输为 0，赢为 1，不使用线性回归的原因是该结果的输出为二分类问题，不需要数据的连续性，只需要输出 0 和 1 即可，同时该问题不是简单地线性问题，即很难用一条直线直接模拟该队触地得分次数与输赢的关系，同时受离群值的影响（当 x 值特别大，超过了正常的范围，就会影响正常值的分类），使用线性回归有很大的几率分类错误，所以所以使用逻辑回归方法进行分类。</p>
+            <h2 id="nfl-data">NFL data</h2>
+<p>美国职业橄榄球大联盟（National Football League，简称NFL）<a id="more"></a> 你妹的，这教授我佛了。</p>
+<h2 id="逻辑回归">逻辑回归</h2>
+<p>在第一节课中，x 轴代表该队触地得分的次数，y 轴代表该队是否胜利，输为 0，赢为 1，不使用线性回归的原因是该结果的输出为二分类问题，不需要数据的连续性，只需要输出 0 和 1 即可，同时该问题不是简单地线性问题，即很难用一条直线直接模拟该队触地得分次数与输赢的关系，同时受离群值的影响（当 x 值特别大，超过了正常的范围，就会影响正常值的分类），使用线性回归有很大的几率分类错误，所以所以使用逻辑回归方法进行分类。</p>
 <p>逻辑回归使用 Sigmoid 函数，将函数的输入范围是负无穷到正无穷的定义域规定为 0-1 之内的范围，这样就解决了由于离群值对于阈值的影响作用。</p>
-<h2 id="参数定义（用于-F1-score-计算）"><a href="#参数定义（用于-F1-score-计算）" class="headerlink" title="参数定义（用于 F1 score 计算）"></a>参数定义（用于 F1 score 计算）</h2><p><strong>True Positives (TP)</strong>: Correct positive predictions<br>预测 yes，真实 yes<br><strong>False Positives (FP)</strong>: Incorrect positive predictions (false alarm)<br>预测 yes，真实 no<br><strong>True Negatives (TN)</strong>: Correct negative predictions<br>预测 no，真实 no<br><strong>False Negatives (FN)</strong>: Incorrect negative predictions (a miss)<br>预测 no，真实 yes</p>
-<h2 id="F1-score"><a href="#F1-score" class="headerlink" title="F1 score"></a>F1 score</h2><p>用来衡量二分类模型精确的一种指标<br><strong>精确率</strong>：TP/所有预测的 yes（所有预测 yes 中真实为 yes 的比率）<br><strong>召回率</strong>：TP/所有真实的 yes（所有真实 yes 中预测为 yes 的比率）<br><strong>F1 score</strong>：2/(1/P+1/C)=2TP(2TP+FN+FP)</p>
-<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><p>利用 if-then 原则，按照树状结构的特点，叶节点表示其分类标记，非叶节点表示其各个 feature，利用 feature 进行匹配，直至找到最符合数据的分类。</p>
-<h2 id="随机森林（Random-Forests）"><a href="#随机森林（Random-Forests）" class="headerlink" title="随机森林（Random Forests）"></a>随机森林（Random Forests）</h2><p>包含多个决策树的分类器， 并且其输出的类别是由个别树输出的类别的众数而定。，随机森林对回归的结果在内部是取得平均</p>
+<h2 id="参数定义用于-f1-score-计算">参数定义（用于 F1 score 计算）</h2>
+<p><strong>True Positives (TP)</strong>: Correct positive predictions 预测 yes，真实 yes <strong>False Positives (FP)</strong>: Incorrect positive predictions (false alarm) 预测 yes，真实 no <strong>True Negatives (TN)</strong>: Correct negative predictions 预测 no，真实 no <strong>False Negatives (FN)</strong>: Incorrect negative predictions (a miss) 预测 no，真实 yes</p>
+<h2 id="f1-score">F1 score</h2>
+<p>用来衡量二分类模型精确的一种指标 <strong>精确率</strong>：TP/所有预测的 yes（所有预测 yes 中真实为 yes 的比率） <strong>召回率</strong>：TP/所有真实的 yes（所有真实 yes 中预测为 yes 的比率） <strong>F1 score</strong>：2/(1/P+1/C)=2TP(2TP+FN+FP)</p>
+<h2 id="决策树">决策树</h2>
+<p>利用 if-then 原则，按照树状结构的特点，叶节点表示其分类标记，非叶节点表示其各个 feature，利用 feature 进行匹配，直至找到最符合数据的分类。</p>
+<h2 id="随机森林random-forests">随机森林（Random Forests）</h2>
+<p>包含多个决策树的分类器， 并且其输出的类别是由个别树输出的类别的众数而定。，随机森林对回归的结果在内部是取得平均</p>
 <p>在得到森林之后，当有一个新的输入样本进入的时候，就让森林中的每一棵决策树分别进行一下判断，看看这个样本应该属于哪一类（对于分类算法），然后看看哪一类被选择最多，就预测这个样本为那一类。</p>
-<h2 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h2><p>XGBoost是boosting算法的其中一种。Boosting算法的思想是将许多弱分类器集成在一起形成一个强分类器。因为XGBoost是一种提升树模型，所以它是将许多树模型集成在一起，形成一个很强的分类器。而所用到的树模型则是CART回归树模型。</p>
+<h2 id="xgboost">XGBoost</h2>
+<p>XGBoost是boosting算法的其中一种。Boosting算法的思想是将许多弱分类器集成在一起形成一个强分类器。因为XGBoost是一种提升树模型，所以它是将许多树模型集成在一起，形成一个很强的分类器。而所用到的树模型则是CART回归树模型。</p>
 
         </div>
         
@@ -1017,6 +1024,6 @@ document.addEventListener('DOMContentLoaded', function () {
 <!--
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

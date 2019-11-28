@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  lang="en">
 <head>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8" />
+    <meta charset="utf-8" />
 
 <meta name="generator" content="Hexo 4.0.0" />
 
@@ -80,11 +80,11 @@
     <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
-<script src="/js/globalUtils.js"></script>
-<link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- <script src="/js/globalUtils.js"></script> -->
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-2-column">
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
+    <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -118,9 +118,9 @@
                 
                 
                 <!--comment -->
-                <a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;" target="_blank" rel="noopener">
+                <!-- <a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-moon" id="night-icon"></i>
-                </a>
+                </a> -->
                 <!--comment -->
                 
                 <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
@@ -132,7 +132,7 @@
         </div>
     </div>
 </nav>
-    <script type="text/javascript" src="/js/theme-setting.js"></script>
+    <!-- <script type="text/javascript" src="/js/theme-setting.js"></script> -->
      
     <section class="section">
         <div class="container">
@@ -181,13 +181,19 @@
             
         </h1>
         <div class="content">
-            <h1 id="多智能体强化学习-二-基础算法（MiniMax-Q，NashQ，FFQ，WoLF-PHC）"><a href="#多智能体强化学习-二-基础算法（MiniMax-Q，NashQ，FFQ，WoLF-PHC）" class="headerlink" title="多智能体强化学习(二) 基础算法（MiniMax-Q，NashQ，FFQ，WoLF-PHC）"></a>多智能体强化学习(二) 基础算法（MiniMax-Q，NashQ，FFQ，WoLF-PHC）</h1><a id="more"></a>
-<h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h2><p>再多智能体强化学习中，需要多 agent 在与环境交互过程中不断学习每个状态的奖励值 Q函数，再通过 Q函数来学习得到最优纳什策略。<br><strong>合理性</strong>（rationality）是指在对手使用一个恒定策略的情况下，当前智能体能够学习并收敛到一个相对于对手策略的最优策略。</p>
+            <h1 id="多智能体强化学习二-基础算法minimax-qnashqffqwolf-phc">多智能体强化学习(二) 基础算法（MiniMax-Q，NashQ，FFQ，WoLF-PHC）</h1>
+<a id="more"></a>
+<h2 id="引言">1. 引言</h2>
+<p>再多智能体强化学习中，需要多 agent 在与环境交互过程中不断学习每个状态的奖励值 Q函数，再通过 Q函数来学习得到最优纳什策略。 <strong>合理性</strong>（rationality）是指在对手使用一个恒定策略的情况下，当前智能体能够学习并收敛到一个相对于对手策略的最优策略。</p>
 <p><strong>收敛性</strong>（convergence）是指在其他智能体也使用学习算法时，当前智能体能够学习并收敛到一个稳定的策略。通常情况下，收敛性针对系统中的所有的智能体使用相同的学习算法。</p>
-<h2 id="2-Minimax-Q算法"><a href="#2-Minimax-Q算法" class="headerlink" title="2. Minimax-Q算法"></a>2. Minimax-Q算法</h2><p><strong>Condition</strong>: 两个玩家的零和随机博弈(eg.抛硬币)<br><strong>Idea</strong>: 利用 Qlearning 的方法更新Q值<br><strong>Algorithm</strong>:<br><img src="https://pic2.zhimg.com/80/v2-e907b291d3ec2e6dd62c96a86b4fd171_hd.jpg" alt="avatar"></p>
-<h2 id="3-Nash-Q-Learning算法"><a href="#3-Nash-Q-Learning算法" class="headerlink" title="3. Nash Q-Learning算法"></a>3. Nash Q-Learning算法</h2><p><strong>Condition</strong>: 多个玩家的一般和博弈(完全对抗博弈、完全合作博弈以及二者的混合博弈)<br><strong>Idea</strong>: 使用二次规划求解纳什均衡点<br><strong>Algorithm</strong>:<br><img src="https://pic4.zhimg.com/v2-5d50dc1f2ad874c22f10d5e796f64347_r.jpg" alt="avatar"><br>通过算法可以得知，在更新 Q 值时，取代了传统的期望奖励 V 函数，这里用了 Nash 函数进行了更新,需要观测其他所有智能体的动作 $a_i$ 与奖励值 $r_i$</p>
-<h2 id="4-Friend-or-Foe-Q-Learning算法"><a href="#4-Friend-or-Foe-Q-Learning算法" class="headerlink" title="4. Friend-or-Foe Q-Learning算法"></a>4. Friend-or-Foe Q-Learning算法</h2><p><strong>Condition</strong>: 一个智能体i，将其他所有智能体分为两组，一组为i的friend帮助i一起最大化其奖励回报，另一组为i的foe对抗i并降低i的奖励回报，因此对每个智能体而言都有两组。这样一个n智能体的一般和博弈就转化为了一个两智能体的零和博弈<br><strong>Idea</strong>: 将剩余 agent 进行分组，在纳什均衡策略求解中，传统的所有 action 替换为了帮助自己的 action 和敌人的 action<br>Algorithm:<br><img src="https://pic1.zhimg.com/80/v2-2f4cff250568ca25853f1bc8e23e3b54_hd.jpg" alt="avatar"><br>为了更新 Q 值，每个智能体需要在每一步观测其他所有friend与foe的执行动作。</p>
-<h2 id="5-WoLF-Policy-Hill-Climbing算法"><a href="#5-WoLF-Policy-Hill-Climbing算法" class="headerlink" title="5. WoLF Policy Hill-Climbing算法"></a>5. WoLF Policy Hill-Climbing算法</h2><p><strong>Condition</strong>: 每个智能体只用保存自己的动作来完成学习任务,个人认为为了避免前面三个算法带来的维度灾难问题，因为每个 agent 都需要存储所有 agent 的动作集。<br><strong>Idea</strong>:<br><strong>WolF</strong>:当智能体做的比期望值好的时候小心缓慢的调整参数，当智能体做的比期望值差的时候，加快步伐调整参数。<br><strong>PHC</strong>:一种单智能体在稳定环境下的一种学习算法。该算法的核心就是通常强化学习的思想，增大能够得到最大累积期望的动作的选取概率。该算法具有合理性，能够收敛到最优策略。其算法流程如下<br><strong>PHC Algorithm</strong>:<br><img src="https://pic4.zhimg.com/80/v2-8420ec197cb0516076725645a1359ab3_hd.jpg" alt="avatar"><br><strong>WOLF+PHC Algorithm</strong>:<br>通过PHC算法进行学习改进策略,收敛性没有得到证明。<br><img src="https://pic2.zhimg.com/80/v2-a549b9cfd895898e7a4cc74d7432ce55_hd.jpg" alt="avatar"></p>
+<h2 id="minimax-q算法">2. Minimax-Q算法</h2>
+<p><strong>Condition</strong>: 两个玩家的零和随机博弈(eg.抛硬币) <strong>Idea</strong>: 利用 Qlearning 的方法更新Q值 <strong>Algorithm</strong>: <img src="https://pic2.zhimg.com/80/v2-e907b291d3ec2e6dd62c96a86b4fd171_hd.jpg" alt="avatar"></p>
+<h2 id="nash-q-learning算法">3. Nash Q-Learning算法</h2>
+<p><strong>Condition</strong>: 多个玩家的一般和博弈(完全对抗博弈、完全合作博弈以及二者的混合博弈) <strong>Idea</strong>: 使用二次规划求解纳什均衡点 <strong>Algorithm</strong>: <img src="https://pic4.zhimg.com/v2-5d50dc1f2ad874c22f10d5e796f64347_r.jpg" alt="avatar"> 通过算法可以得知，在更新 Q 值时，取代了传统的期望奖励 V 函数，这里用了 Nash 函数进行了更新,需要观测其他所有智能体的动作 <span class="math inline">\(a_i\)</span> 与奖励值 <span class="math inline">\(r_i\)</span></p>
+<h2 id="friend-or-foe-q-learning算法">4. Friend-or-Foe Q-Learning算法</h2>
+<p><strong>Condition</strong>: 一个智能体i，将其他所有智能体分为两组，一组为i的friend帮助i一起最大化其奖励回报，另一组为i的foe对抗i并降低i的奖励回报，因此对每个智能体而言都有两组。这样一个n智能体的一般和博弈就转化为了一个两智能体的零和博弈 <strong>Idea</strong>: 将剩余 agent 进行分组，在纳什均衡策略求解中，传统的所有 action 替换为了帮助自己的 action 和敌人的 action Algorithm: <img src="https://pic1.zhimg.com/80/v2-2f4cff250568ca25853f1bc8e23e3b54_hd.jpg" alt="avatar"> 为了更新 Q 值，每个智能体需要在每一步观测其他所有friend与foe的执行动作。</p>
+<h2 id="wolf-policy-hill-climbing算法">5. WoLF Policy Hill-Climbing算法</h2>
+<p><strong>Condition</strong>: 每个智能体只用保存自己的动作来完成学习任务,个人认为为了避免前面三个算法带来的维度灾难问题，因为每个 agent 都需要存储所有 agent 的动作集。 <strong>Idea</strong>: <strong>WolF</strong>:当智能体做的比期望值好的时候小心缓慢的调整参数，当智能体做的比期望值差的时候，加快步伐调整参数。 <strong>PHC</strong>:一种单智能体在稳定环境下的一种学习算法。该算法的核心就是通常强化学习的思想，增大能够得到最大累积期望的动作的选取概率。该算法具有合理性，能够收敛到最优策略。其算法流程如下 <strong>PHC Algorithm</strong>: <img src="https://pic4.zhimg.com/80/v2-8420ec197cb0516076725645a1359ab3_hd.jpg" alt="avatar"> <strong>WOLF+PHC Algorithm</strong>: 通过PHC算法进行学习改进策略,收敛性没有得到证明。 <img src="https://pic2.zhimg.com/80/v2-a549b9cfd895898e7a4cc74d7432ce55_hd.jpg" alt="avatar"></p>
 
         </div>
         
@@ -1015,6 +1021,6 @@ document.addEventListener('DOMContentLoaded', function () {
 <!--
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
