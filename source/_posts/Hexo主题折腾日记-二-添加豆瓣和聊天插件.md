@@ -15,7 +15,7 @@ toc: false
 ### 实现效果
 <!--more-->
 <center>
-<img src="https://raw.githubusercontent.com/NavePnow/blog_photo/master/screenshot 2019-11-17 at 12.18.22.png" height="60%" width="60%">
+<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/screenshot 2019-11-17 at 12.18.22.png" height="60%" width="60%">
 </center>
 
 ### 配置
@@ -91,14 +91,14 @@ douban:
 ## 博客聊天插件
 ### 实现效果
 <center>
-<img src="https://raw.githubusercontent.com/NavePnow/blog_photo/master/screenshot 2019-11-17 at 20.33.21.png" height="40%" width="40%">
+<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/screenshot 2019-11-17 at 20.33.21.png" height="40%" width="40%">
 </center>
 
 ### 配置
 1. 首先需要注册 [Tidio](https://www.tidio.com/) 账号，根据引导填写应用信息。
 2. 在个人主页中选择 `Channels -> Live Chat -> Integration` ,复制 JS 代码
 <center>
-<img src="https://raw.githubusercontent.com/NavePnow/blog_photo/master/screenshot 2019-11-17 at 20.37.55.png" height="60%" width="60%">
+<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/screenshot 2019-11-17 at 20.37.55.png" height="60%" width="60%">
 </center>
 3. 修改 /layout/layout.ejs, 在文件最后插入对应的代码.
 ```diff

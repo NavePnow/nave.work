@@ -12,12 +12,12 @@ toc: true
 # 前言
 从Hexo建站开始，一直是使用的cactus主题，很喜欢那种简约的风格，主页文章预览的都没有的那一种。<!--more-->
 <center>
-<img src="https://raw.githubusercontent.com/NavePnow/blog_photo/master/IMAGE 2019-11-16 11:11:11.jpg" height="60%" width="60%">
+<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/IMAGE 2019-11-16 11:11:11.jpg" height="60%" width="60%">
 </center>
 
 直到昨天心血来潮想搞一个基于ghost的动态博客，同时爱上了他的默认主题casper，心想这不就是我梦寐已久的主题么，结果搜了很多的资料，发现个人维护的建站工具都是至少1年以上的，有一个基于 python 可以通过ghost部署到github pags上的工具还是基于2.7,我直接裂开，最终直接放弃了这套方案，回过头来想能不能把casper移植到hexo上呢，在github上也搜到了相应的项目，但效果emmm，不是特别能让我满意，贴一张demo供大家参考。
 <center>
-<img src="https://raw.githubusercontent.com/NavePnow/blog_photo/master/IMAGE 2019-11-16 11:10:20.jpg" height="60%" width="60%">
+<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/IMAGE 2019-11-16 11:10:20.jpg" height="60%" width="60%">
 </center>
 
 主要还是插件的支持度没有成熟主题的高，然后就又开始google: hexo主题推荐2019类似的关键词，终于发现了这个模版，icarus，没有cactus那么朴素，插件支持度和commit活跃度也比hexo-casper高，所以昨天花了很长很长的时间调整网页布局和文章渲染问题，最终效果我打9分吧，因为还有一点问题没有解决，等写完这个博客我再搞，下面主要把我基于别人修改的模版和自己修改的内容做一下总结，以免以后git pull之后不知道自己做了哪些修改。
@@ -126,7 +126,7 @@ toc: true
 ## 增加profile下面的 bio, 可以放一点自己想说的话
 ### 实现效果
 <center>
-<img src="https://raw.githubusercontent.com/NavePnow/blog_photo/master/screenshot 2019-11-16 at 11.47.59.png" height="40%" width="40%">
+<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/screenshot 2019-11-16 at 11.47.59.png" height="40%" width="40%">
 </center>
 
 ### 配置
@@ -148,7 +148,7 @@ toc: true
 
 ### 实现效果
 <center>
-<img src="https://raw.githubusercontent.com/NavePnow/blog_photo/master/screenshot 2019-11-16 at 13.30.30.png" height="40%" width="40%">
+<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/screenshot 2019-11-16 at 13.30.30.png" height="40%" width="40%">
 </center>
 
 ### 使用说明
@@ -185,7 +185,7 @@ toc: true
 
 ### 实现效果
 <center>
-<img src="https://raw.githubusercontent.com/NavePnow/blog_photo/master/screenshot 2019-11-16 at 11.59.42.png" height="80%" width="80%">
+<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/screenshot 2019-11-16 at 11.59.42.png" height="80%" width="80%">
 </center>
 
 ### 使用说明
@@ -282,7 +282,7 @@ toc: true
 ## 页脚访问人数显示修改
 ### 实现效果  
 <center>
-<img src="https://raw.githubusercontent.com/NavePnow/blog_photo/master/screenshot 2019-11-17 at 18.25.58.png">
+<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/screenshot 2019-11-17 at 18.25.58.png">
 </center>
 
 ### 配置
