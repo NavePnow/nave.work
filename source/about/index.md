@@ -1,12 +1,14 @@
 ---
 title: about
 date: 2019-11-16 15:45:01
-thumbnail: https://raw.githubusercontent.com/NavePnow/blog_photo/master/Xnip2019-11-15_17-48-40.jpg
+thumbnail: https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/Xnip2019-11-15_17-48-40.jpg
 ---
+<p align="center">
+<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/trans.png" width="200">
+</p>
+<h1 align="center">Evan</h1>
 
-# nave.work
-
-> My lovely blog
+> [My lovely blog](https://nave.work)
 
 [![Build Status](https://travis-ci.org/NavePnow/nave.work.svg?branch=master)](https://travis-ci.org/NavePnow/nave.work) [![dependencies Status](https://david-dm.org/NavePnow/nave.work/status.svg)](https://david-dm.org/NavePnow/nave.work)
 
@@ -14,7 +16,7 @@ thumbnail: https://raw.githubusercontent.com/NavePnow/blog_photo/master/Xnip2019
 
 还活着。
 
-本科 CS 专业，不知道是不是知名的985院校，目前大四，GT狗，预计美妍继续 CS，12.1最后一次托，再拼一把争取前三十。想去LA, 去感受一下 LALALAND 的氛围，当然毕业之前有很多打算，换一个电脑，买一个微单，去很多很多地方。。地址之所以写台湾是因为我对她，爱的深沉。
+本科 CS 专业，不知道是不是知名的985院校，目前大四，即将毕业，GT狗 (已经分手)，美妍继续 CS，可能会有针对性的去学习分布式计算方向，2019年12月31号前一共完成了11所学校的申请，想去LA (当然哥大也不错), 去感受一下 LALALAND 的氛围，下学期去新加坡国立大学做毕业设计，当然毕业之前有很多打算，换一个电脑 (已经完成)，买一个微单，去很多很多地方。。地址之所以写台湾是因为我对她，爱的深沉。
 
 不要对我有期待。
 
@@ -24,7 +26,7 @@ thumbnail: https://raw.githubusercontent.com/NavePnow/blog_photo/master/Xnip2019
 
 不要手懒，看完一本书，看完一个电影，和他人的美好邂逅，值得回忆的东西都值得让你动动手记录下来，即使以后忘记了，也可以翻出来，说，你看，我还有这样的故事呢。
 
-> Build: [Hexo](https://hexo.io/) + [Icarus](http://github.com/ppoffice/hexo-theme-icarus)  + [Travis CI](https://travis-ci.org/) +  [Github pages](https://github.com/NavePnow/navepnow.github.io)
+> Build: [Hexo](https://hexo.io/) + [Icarus](http://github.com/ppoffice/hexo-theme-icarus)  + [Github pages](https://github.com/NavePnow/navepnow.github.io) + [Travis CI](https://travis-ci.org/)
 
 > Image Hosting: [Github](https://github.com/NavePnow/blog_photo) + [Tencent Cloud COS](https://cloud.tencent.com/product/cos)
 
