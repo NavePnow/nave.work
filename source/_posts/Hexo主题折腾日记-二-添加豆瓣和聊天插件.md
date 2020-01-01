@@ -1,11 +1,12 @@
 ---
 title: Hexo主题折腾日记(二) 添加豆瓣和聊天插件
+date: 2019-11-18 10:59:11
 tags: []
 categories:
 thumbnail: https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60
 recommend: 1
 top: 100
-toc: false
+toc: true
 ---
 
 # 前言
