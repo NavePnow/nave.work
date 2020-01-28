@@ -4,7 +4,7 @@ date: 2019-11-16 15:45:01
 thumbnail: https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/Xnip2019-11-15_17-48-40.jpg
 ---
 <p align="center">
-<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/trans.png" width="200">
+<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/trans123.png" width="200">
 </p>
 <h1 align="center">Evan</h1>
 
