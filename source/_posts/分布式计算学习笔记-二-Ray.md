@@ -29,10 +29,17 @@ Ray是UC Berkeley RISELab新推出的高性能分布式执行框架，它使用�
 	- 推荐系统
 	- 文本翻译
 	- Application: deep reinforcement learning using RLlib, scalable hyperparameter search using Ray Tune, automatic program synthesis using AutoPandas, etc. (advanced library from tutorial)
+## ray分布式框架的介绍
+### 远程对象 - 不可变
+远程对象存储在对象存储总，并利用唯一的对象ID进行引用。
+ray.put() 和 ray.get() : 用过 python 对象和对象ID的转换
+**x\_id=ray.put(x)**：x为 python 对象，其函数返回值为该对象的对象ID
 
+### 远程函数
 
 # Reference
 - [https://blog.csdn.net/lzc4869/article/details/94663616][1]
-- 
+- [https://blog.csdn.net/weixin\_43255962/article/details/88689665][2]
 
 [1]:	https://blog.csdn.net/lzc4869/article/details/94663616
+[2]:	https://blog.csdn.net/weixin_43255962/article/details/88689665
