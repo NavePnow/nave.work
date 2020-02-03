@@ -1,15 +1,15 @@
 ---
 title: 分布式计算学习笔记(二) Ray —远程对象与远程函数
-date: 2019-11-21 11:01:35
-categories:
+date: 2019-11-20 11:01:35
 thumbnail: https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
 recommend: 0
 top: 100
 toc: true
+categories: [Distributed System]
 ---
 # Ray
-## 前言
 <!--more-->
+## 前言
 下学期去新加坡做毕设，老师给我订的主题是关于Ray-分布式执行框架的内容，其实就是想让我在这个框架中做一些应用，也可以说是大众化？前几天和HUST的挂名老师聊了聊，她也没有听说过这个框架，在网上搜了一下，说让我尝试一下在这个分布式执行框架中实现一个聚类算法，关键词有 Ray Tensor Clustering, 说实话，不懂，真的，看一个名次就会蹦出5个之前没见过的，多个名字叠加直接把我搞懵逼了。所以这个系列也算是我的学习笔记吧。
 ## 概述
 Ray是UC Berkeley RISELab新推出的高性能分布式执行框架，它使用了和传统分布式计算系统不一样的架构和对分布式计算的抽象方式，具有比Spark更优异的计算性能。
@@ -36,7 +36,7 @@ Ray是UC Berkeley RISELab新推出的高性能分布式执行框架，它使用�
 远程对象存储在对象存储总，并利用唯一的对象ID进行引用。
 ray.put() 和 ray.get() : 用过 python 对象和对象ID的转换
 `x\_id=ray.put(x)`：x为 python 对象，其函数返回值为该对象的对象ID ，数据结构为对象id的列表
-`x=ray.get(x_id)`：x_id_为 对象ID，其函数返回值为该对象ID所对应的python对象 
+`x=ray.get(x_id)`：x\_id\_为 对象ID，其函数返回值为该对象ID所对应的python对象 
 
 ``` python
 		result_ids = [ray.put(i) for i in range(10)]

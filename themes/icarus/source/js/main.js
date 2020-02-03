@@ -34,6 +34,8 @@
     adjustNavbar();
     $(window).resize(adjustNavbar);
 
+
+    
     $('figure.highlight table').wrap('<div class="highlight-body">');
     if (typeof (IcarusThemeSettings) !== 'undefined' &&
         typeof (IcarusThemeSettings.article) !== 'undefined' &&
