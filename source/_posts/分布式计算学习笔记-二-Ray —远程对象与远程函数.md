@@ -35,7 +35,7 @@ Ray是UC Berkeley RISELab新推出的高性能分布式执行框架，它使用�
 ### 远程对象 - 不可变
 远程对象存储在对象存储总，并利用唯一的对象ID进行引用。
 ray.put() 和 ray.get() : 用过 python 对象和对象ID的转换
-`x\_id=ray.put(x)`：x为 python 对象，其函数返回值为该对象的对象ID ，数据结构为对象id的列表
+`x_id=ray.put(x)`：x为 python 对象，其函数返回值为该对象的对象ID ，数据结构为对象id的列表
 `x=ray.get(x_id)`：x\_id\_为 对象ID，其函数返回值为该对象ID所对应的python对象 
 
 ``` python
@@ -123,9 +123,72 @@ ray.put() 和 ray.get() : 用过 python 对象和对象ID的转换
 	#获取结果 1000个数据
 	ray.get(data) # 1
 ```
+
+**使用 ray.wait() 加快进程间的资源等待问题**
+``` python
+import time 
+import random 
+import ray 
+
+ray.init(num_cpus = 4) 
+
+@ray.remote 
+def do_some_work(x): 
+    time.sleep(random.uniform(0, 4))
+    return x 
+
+def process_results(results): 
+    sum = 0 
+    for x in results: 
+        time.sleep(1)
+        sum += x 
+    return sum 
+
+start = time.time() 
+data_list = ray.get([do_some_work.remote(x) for x in range(4)]) 
+sum = process_results(data_list) 
+print("duration =", time.time() - start, "\nresult = ", sum) 
+```
+
+`data_list` 调用了4个远程函数进行执行，每个函数之间并行执行，最长时间为4s，之后再统一进行 sum 工作，所以时间等于 `4s + time(sum)`
+
+为节省时间，利用 `ray.wait()` 函数进行处理，因为远程函数在调用的时候，会直接返回处理数据所对应的数据ID，即使该ID所对应的数据对象还没有返回，利用这个特性，加上 `ray.wait()` , 可以完成效率上的巨大提升。
+
+``` python
+import time 
+import random 
+import ray 
+
+ray.init(num_cpus = 4) 
+
+@ray.remote 
+def do_some_work(x): 
+    time.sleep(random.uniform(0, 4)) 
+    return x 
+
+def process_incremental(sum, result): 
+    time.sleep(1)
+    return sum + result 
+
+start = time.time() 
+result_ids = [do_some_work.remote(x) for x in range(4)] 
+sum = 0 
+
+while len(result_ids): 
+    done_id, result_ids = ray.wait(result_ids) 
+    sum = process_incremental(sum, ray.get(done_id[0])) 
+print("duration =", time.time() - start, "\nresult = ", sum) 
+```
+
+在循环中，`ray.wait()` 返回了计算完成的id和还没有完成的id，将完成的id进行函数的计算工作，没有完成的作为循环判断条件继续进行处理，直至所有的任务都已完成。
+
+![ray.wait()](https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-wait.png)
+**问题：** 为什么每个都是 `done_id[0]` ，难道 `result_ids` 可以完成对 `done_id` 的某种判断还是像队列一样每次扔掉一个。
 # Reference
 - [https://blog.csdn.net/lzc4869/article/details/94663616][1]
 - [https://blog.csdn.net/weixin\_43255962/article/details/88689665][2]
+- [http://www.oreilly.com.cn/ideas/?p=2156][3]
 
 [1]:	https://blog.csdn.net/lzc4869/article/details/94663616
 [2]:	https://blog.csdn.net/weixin_43255962/article/details/88689665
+[3]:	http://www.oreilly.com.cn/ideas/?p=2156
