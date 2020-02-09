@@ -10,12 +10,12 @@ toc: true
 
 # 概述
 本篇博客首先会对 CNN + MNIST 的神经网络结构进行分析（因为我也不会），之后利用 Ray 的 API进行改写，完成分布式框架上的深度学习工作。
-
+<!--more-->
 # 实现
 
 ## CNN 结构
 
-### tf.reshape(tensor, shape, name=None) 
+### tf.reshape(tensor, shape, name=None)
 将 tensor 变换为参数shape的形式
 ```
 xs = tf.placeholder(tf.float32, [None,784])
@@ -39,7 +39,7 @@ x_image = =tf.reshape(xs,[-1,28,28,1])
 `padding`: 当 `padding=SAME` 时，输入与输出形状相同
 
 ### 基于 MNIST 的图像分类结构
-![](https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/cnn-str.jpeg)
+![][image-1]
 ## CNN + MNIST
 ``` python
 from __future__ import print_function
@@ -263,50 +263,57 @@ print('execution time: ' + str(end-start) + 's')
 ## 结果分析
 
 ## No Ray
-    0.087
-    0.749
-    0.854
-    0.887
-    0.902
-    0.926
-    0.919
-    0.941
-    0.946
-    0.949
-    0.954
-    0.953
-    0.958
-    0.956
-    0.96
-    0.965
-    0.962
-    0.963
-    0.965
-    0.968
-    execution time: 52.58758211135864s
+```
+0.087
+0.749
+0.854
+0.887
+0.902
+0.926
+0.919
+0.941
+0.946
+0.949
+0.954
+0.953
+0.958
+0.956
+0.96
+0.965
+0.962
+0.963
+0.965
+0.968
+execution time: 52.58758211135864s
+```
 
 ## Ray
-    (pid=11597) 0.077
-    (pid=11597) 0.722
-    (pid=11597) 0.853
-    (pid=11597) 0.877
-    (pid=11597) 0.904
-    (pid=11597) 0.912
-    (pid=11597) 0.921
-    (pid=11597) 0.932
-    (pid=11597) 0.94
-    (pid=11597) 0.938
-    (pid=11597) 0.944
-    (pid=11597) 0.941
-    (pid=11597) 0.944
-    (pid=11597) 0.952
-    (pid=11597) 0.953
-    (pid=11597) 0.951
-    (pid=11597) 0.957
-    (pid=11597) 0.959
-    (pid=11597) 0.958
-    (pid=11597) 0.966
-    execution time: 59.315696001052856s
+```
+(pid=11597) 0.077
+(pid=11597) 0.722
+(pid=11597) 0.853
+(pid=11597) 0.877
+(pid=11597) 0.904
+(pid=11597) 0.912
+(pid=11597) 0.921
+(pid=11597) 0.932
+(pid=11597) 0.94
+(pid=11597) 0.938
+(pid=11597) 0.944
+(pid=11597) 0.941
+(pid=11597) 0.944
+(pid=11597) 0.952
+(pid=11597) 0.953
+(pid=11597) 0.951
+(pid=11597) 0.957
+(pid=11597) 0.959
+(pid=11597) 0.958
+(pid=11597) 0.966
+execution time: 59.315696001052856s
+```
 
 从结果看，Ray在性能上没有进步太多，这是因为在运行过程中并没有使用多 worker，也就是没有发挥 Ray 本身（分布式框架）的属性。因为是前期实验，所以没有太多更复杂的操作，多worker并行操作就需要涉及到不同worker之间 weight, bias的同步以及网络结构的统一，这都是需要在后期考虑的事情。
-![dashboard](https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-dashboard.png)
+![dashboard][image-2]
+
+[image-1]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/cnn-str.jpeg
+[image-2]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-dashboard.png

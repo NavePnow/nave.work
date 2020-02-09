@@ -33,6 +33,12 @@ Ray是UC Berkeley RISELab新推出的高性能分布式执行框架，它使用�
 	- Application: deep reinforcement learning using RLlib, scalable hyperparameter search using Ray Tune, automatic program synthesis using AutoPandas, etc. (advanced library from tutorial)
 
 ## ray分布式框架的介绍
+### 系统架构
+![structure](https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-str1.png)
+由图可知，Ray的结构基本符合 `master-workers` 的工作方式，其中每一个 `slave` 可以创建多个 `workers` 并行工作，并且在同一个节点中，`workers` 有可以共享的内存空间。
+在终端中运行 `ray.init(include_webui=True)`之后，会在本地创建 Ray集群环境，打开可视化界面如下。
+![dashboard](https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-str2.png)
+由图可知，本地共创建了1个节点，该节点共有16个 `workers` 进行工作
 
 ### 远程对象 - 不可变
 远程对象存储在对象存储总，并利用唯一的对象ID进行引用。
@@ -63,7 +69,7 @@ ray.put() 和 ray.get() : 用过 python 对象和对象ID的转换
 		ray.get(x_id)  # 3
 ```
 
-第二段个函数（远程函数）中，在调用之后会立即创建一个任务并分配给某一节点上的worker进行异步处理（由系统统一调度）。远程函数的输入参数可以通过值或者对象ID传入，函数返回结果为运算结果的唯一对象 ID。在实际情况汇总，一个远程函数可以返回多个对象ID。简单的异步执行的例子：
+第二个函数（远程函数）中，在调用之后会立即创建一个任务并分配给某一节点上的worker进行异步处理（由系统统一调度）。远程函数的输入参数可以通过值或者对象ID传入，函数返回结果为运算结果的唯一对象 ID。在实际情况汇总，一个远程函数可以返回多个对象ID。简单的异步执行的例子：
 
 ``` python
 	import time
@@ -190,9 +196,11 @@ print("duration =", time.time() - start, "\nresult = ", sum)
 - [https://blog.csdn.net/lzc4869/article/details/94663616][1]
 - [https://blog.csdn.net/weixin\_43255962/article/details/88689665][2]
 - [http://www.oreilly.com.cn/ideas/?p=2156][3]
+- [https://www.cnblogs.com/fanzhidongyzby/p/7901139.html][4]
 
 [1]:	https://blog.csdn.net/lzc4869/article/details/94663616
 [2]:	https://blog.csdn.net/weixin_43255962/article/details/88689665
 [3]:	http://www.oreilly.com.cn/ideas/?p=2156
+[4]:	https://www.cnblogs.com/fanzhidongyzby/p/7901139.html
 
 [image-1]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-wait.png

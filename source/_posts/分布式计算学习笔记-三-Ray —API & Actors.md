@@ -15,7 +15,7 @@ Actor: 有状态的 worker，当实例化一个新actor时，将创建一个新w
 
 CSDN: [Ray入门指南（3）----Ray API][1]
 
-可以简单的理解为，在函数上加入 `@ray.remote`之后，这个函数就是 `worker`，在类上加入`@ray.remote`之后，这个类就是actor
+可以简单的理解为，在函数上加入 `@ray.remote`之后，这个函数就是 `worker`，在类上加入`@ray.remote`之后，这个类就是actor(有状态的workers)
 ``` python
 	import os
 	import ray
