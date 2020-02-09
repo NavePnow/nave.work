@@ -8,11 +8,12 @@ top: 100
 toc: true
 ---
 
+# 概述
+本篇博客主要介绍 Ray API 简单的使用（基于actor和worker），以及运行一个简单的利用 Ray 进行修改的传统神经网络模型(MNIST)
+<!--more-->
 Actor: 有状态的 worker，当实例化一个新actor时，将创建一个新worker，并将acto的方法调度到该特定worker上，并且可以访问该worker并更改其状态。
 
-<!--more-->
-
-csdn: [Ray入门指南（3）----Ray API][1]
+CSDN: [Ray入门指南（3）----Ray API][1]
 
 可以简单的理解为，在函数上加入 `@ray.remote`之后，这个函数就是 `worker`，在类上加入`@ray.remote`之后，这个类就是actor
 ``` python

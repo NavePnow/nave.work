@@ -7,11 +7,13 @@ top: 100
 toc: true
 categories: [Distributed System]
 ---
-# Ray
+# 概述
+本篇博客主要介绍 Ray 远程对象，远程函数以及 Ray 进程之间并行的实现。
 <!--more-->
-## 前言
+
+# 前言
 下学期去新加坡做毕设，老师给我订的主题是关于Ray-分布式执行框架的内容，其实就是想让我在这个框架中做一些应用，也可以说是大众化？前几天和HUST的挂名老师聊了聊，她也没有听说过这个框架，在网上搜了一下，说让我尝试一下在这个分布式执行框架中实现一个聚类算法，关键词有 Ray Tensor Clustering, 说实话，不懂，真的，看一个名次就会蹦出5个之前没见过的，多个名字叠加直接把我搞懵逼了。所以这个系列也算是我的学习笔记吧。
-## 概述
+## Ray 概述
 Ray是UC Berkeley RISELab新推出的高性能分布式执行框架，它使用了和传统分布式计算系统不一样的架构和对分布式计算的抽象方式，具有比Spark更优异的计算性能。
 - 优点:
 	- 海量任务调度能力。
@@ -124,7 +126,7 @@ ray.put() 和 ray.get() : 用过 python 对象和对象ID的转换
 	ray.get(data) # 1
 ```
 
-**使用 ray.wait() 加快进程间的资源等待问题**
+### **使用 ray.wait() 加快进程间的资源等待问题**
 ``` python
 import time 
 import random 
@@ -182,7 +184,7 @@ print("duration =", time.time() - start, "\nresult = ", sum)
 
 在循环中，`ray.wait()` 返回了计算完成的id和还没有完成的id，将完成的id进行函数的计算工作，没有完成的作为循环判断条件继续进行处理，直至所有的任务都已完成。
 
-![ray.wait()](https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-wait.png)
+![ray.wait()][image-1]
 **问题：** 为什么每个都是 `done_id[0]` ，难道 `result_ids` 可以完成对 `done_id` 的某种判断还是像队列一样每次扔掉一个。
 # Reference
 - [https://blog.csdn.net/lzc4869/article/details/94663616][1]
@@ -192,3 +194,5 @@ print("duration =", time.time() - start, "\nresult = ", sum)
 [1]:	https://blog.csdn.net/lzc4869/article/details/94663616
 [2]:	https://blog.csdn.net/weixin_43255962/article/details/88689665
 [3]:	http://www.oreilly.com.cn/ideas/?p=2156
+
+[image-1]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-wait.png
