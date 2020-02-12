@@ -315,5 +315,25 @@ execution time: 59.315696001052856s
 从结果看，Ray在性能上没有进步太多，这是因为在运行过程中并没有使用多 worker，也就是没有发挥 Ray 本身（分布式框架）的属性。因为是前期实验，所以没有太多更复杂的操作，多worker并行操作就需要涉及到不同worker之间 weight, bias的同步以及网络结构的统一，这都是需要在后期考虑的事情。
 ![dashboard][image-2]
 
+## 问题
+通过和同学的讨论，之后会选择在终端先启动 Ray，然后在 ray.init() 中进行调用的方式进行训练，这样就避免了每一次任务结束之后 Ray 会自动关闭的情况，但在测试中发现了一些问题，进行记录。
+1. 在终端中启动 Ray 之后，会进行一下输出 
+
+	    Started Ray on this node. You can add additional nodes to the cluster by calling
+	    ray start --address='172.17.78.111:21907' --redis-password='5241590000000000'
+
+	其意思为增加新的节点，在测试过程中我一共输入了两遍，逻辑上共创建了1个母节点（master）和两个子节点（slave），但在 dashboard输出中，我并没有看到3个节点间的逻辑关系
+	![ray-test1][1]
+	![ray-test2][2]
+2. 终端运行 `python3 cnn-ray.py` , 在 dashboard 中可以看到，的确只有一个进程（worker）在执行task。
+	![ray-test3][3] 
+	但是在终端输出界面，却发现了同样的结果输出了3次的情况
+	![ray-test4][4]
+
+[1]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-test1.png
+[2]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-test2.png
+[3]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-test3.png
+[4]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-test4.png
+
 [image-1]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/cnn-str.jpeg
 [image-2]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-dashboard.png
