@@ -20,8 +20,10 @@ comment: true
 {% figure https://blogphoto-1257787992.cos.ap-beijing.myqcloud.com/Enlight24.jpg [Cover 4] %}
 {% figure https://blogphoto-1257787992.cos.ap-beijing.myqcloud.com/Enlight21.jpeg [Cover 5] %}
 {% figure https://blogphoto-1257787992.cos.ap-beijing.myqcloud.com/Enlight10.jpg [Cover 6] %}
+{% figure https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/cover6.jpeg [Cover 7] %}
 {% figure https://blogphoto-1257787992.cos.ap-beijing.myqcloud.com/IMG_1737.jpeg [Dorm 1] %}
 {% figure https://blogphoto-1257787992.cos.ap-beijing.myqcloud.com/IMG_1785.jpeg [Dorm 2] %}
+{% figure https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/cs-course.png [cs-course] %}
 {% figure https://blogphoto-1257787992.cos.ap-beijing.myqcloud.com/123.jpg [Goodbye] %}
 
 {% endstream %}
