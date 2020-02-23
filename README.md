@@ -5,8 +5,7 @@
 
 > [My lovely blog](https://nave.work)
 
-[![Build Status](https://travis-ci.org/NavePnow/nave.work.svg?branch=master)](https://travis-ci.org/NavePnow/nave.work) [![dependencies Status](https://david-dm.org/NavePnow/nave.work/status.svg)](https://david-dm.org/NavePnow/nave.work)
-
+[![Build Status](https://travis-ci.org/NavePnow/nave.work.svg?branch=master)](https://travis-ci.org/NavePnow/nave.work) [![dependencies Status](https://david-dm.org/NavePnow/nave.work/status.svg)](https://david-dm.org/NavePnow/nave.work) [![GitHub Total Stars](https://img.shields.io/badge/dynamic/json?label=GitHub%20Total%20Stars&query=%24.stars&url=https%3A%2F%2Fevan-github.herokuapp.com%2Fuser%2FNavePnow)](http://github.com/NavePnow) [![GitHub Total Forks](https://img.shields.io/badge/dynamic/json?label=GitHub%20Total%20Forks&query=%24.forks&url=https%3A%2F%2Fevan-github.herokuapp.com%2Fuser%2FNavePnow)](http://github.com/NavePnow)
 ## **About me**
 
 还活着。
