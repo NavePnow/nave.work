@@ -40,7 +40,7 @@ x_image = =tf.reshape(xs,[-1,28,28,1])
 
 ### 基于 MNIST 的图像分类结构
 ![][image-1]
-## CNN + MNIST
+## 2D + CNN
 ``` python
 from __future__ import print_function
 import tensorflow.compat.v1 as tf
@@ -132,7 +132,7 @@ for i in range(1000):
 end = time.time()
 print('execution time: ' + str(end-start) + 's')
 ```
-## CNN + Ray
+## 2D + CNN + Ray
 ``` python
 
 from tensorflow.examples.tutorials.mnist import input_data
@@ -319,21 +319,22 @@ execution time: 59.315696001052856s
 通过和同学的讨论，之后会选择在终端先启动 Ray，然后在 ray.init() 中进行调用的方式进行训练，这样就避免了每一次任务结束之后 Ray 会自动关闭的情况，但在测试中发现了一些问题，进行记录。
 1. 在终端中启动 Ray 之后，会进行一下输出 
 
-	    Started Ray on this node. You can add additional nodes to the cluster by calling
-	    ray start --address='172.17.78.111:21907' --redis-password='5241590000000000'
+	```
+	Started Ray on this node. You can add additional nodes to the cluster by calling
+	ray start --address='172.17.78.111:21907' --redis-password='5241590000000000'
+	```
 
 	其意思为增加新的节点，在测试过程中我一共输入了两遍，逻辑上共创建了1个母节点（master）和两个子节点（slave），但在 dashboard输出中，我并没有看到3个节点间的逻辑关系
-	![ray-test1][1]
-	![ray-test2][2]
+	![ray-test1][image-3]
+	![ray-test2][image-4]
 2. 终端运行 `python3 cnn-ray.py` , 在 dashboard 中可以看到，的确只有一个进程（worker）在执行task。
-	![ray-test3][3] 
+	![ray-test3][image-5] 
 	但是在终端输出界面，却发现了同样的结果输出了3次的情况
-	![ray-test4][4]
-
-[1]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-test1.png
-[2]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-test2.png
-[3]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-test3.png
-[4]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-test4.png
+	![ray-test4][image-6]
 
 [image-1]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/cnn-str.jpeg
 [image-2]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-dashboard.png
+[image-3]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-test1.png
+[image-4]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-test2.png
+[image-5]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-test3.png
+[image-6]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-test4.png
