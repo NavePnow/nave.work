@@ -34,10 +34,13 @@ Ray是UC Berkeley RISELab新推出的高性能分布式执行框架，它使用�
 
 ## ray分布式框架的介绍
 ### 系统架构
-![structure](https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-str1.png)
+![structure][image-1]
 由图可知，Ray的结构基本符合 `master-workers` 的工作方式，其中每一个 `slave` 可以创建多个 `workers` 并行工作，并且在同一个节点中，`workers` 有可以共享的内存空间。
+
+在每个节点中，存在一个 **ObjectStore**，用来存储只读数据对象，Worker可以通过共享内存的方式访问这些对象数据，这样可以有效地减少内存拷贝和对象序列化成本。ObjectStore底层由Apache Arrow实现。同时每个节点存在一个 **Plasma** 用来管理 **ObjectStore**。它可以在Worker访问本地ObjectStore上不存在的远程数据对象时，主动拉取其它Slave上的对象数据到当前机器。
+
 在终端中运行 `ray.init(include_webui=True)`之后，会在本地创建 Ray集群环境，打开可视化界面如下。
-![dashboard](https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-str2.png)
+![dashboard][image-2]
 由图可知，本地共创建了1个节点，该节点共有16个 `workers` 进行工作
 
 ### 远程对象 - 不可变
@@ -190,7 +193,7 @@ print("duration =", time.time() - start, "\nresult = ", sum)
 
 在循环中，`ray.wait()` 返回了计算完成的id和还没有完成的id，将完成的id进行函数的计算工作，没有完成的作为循环判断条件继续进行处理，直至所有的任务都已完成。
 
-![ray.wait()][image-1]
+![ray.wait()][image-3]
 **问题：** 为什么每个都是 `done_id[0]` ，难道 `result_ids` 可以完成对 `done_id` 的某种判断还是像队列一样每次扔掉一个。
 # Reference
 - [https://blog.csdn.net/lzc4869/article/details/94663616][1]
@@ -203,4 +206,6 @@ print("duration =", time.time() - start, "\nresult = ", sum)
 [3]:	http://www.oreilly.com.cn/ideas/?p=2156
 [4]:	https://www.cnblogs.com/fanzhidongyzby/p/7901139.html
 
-[image-1]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-wait.png
+[image-1]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-str1.png
+[image-2]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-str2.png
+[image-3]:	https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/ray-wait.png
