@@ -4,13 +4,16 @@ date: 2019-11-16 15:45:01
 thumbnail: https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/Xnip2019-11-15_17-48-40.jpg
 ---
 <p align="center">
-<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/trans123.png" width="200">
+<img src="https://cdn.jsdelivr.net/gh/NavePnow/blog_photo@private/trans123.png" alt="Evan" width="200">
 </p>
 <h1 align="center">Evan</h1>
 
 > [My lovely blog](https://nave.work)
 
-[![Build Status](https://travis-ci.org/NavePnow/nave.work.svg?branch=master)](https://travis-ci.org/NavePnow/nave.work) [![dependencies Status](https://david-dm.org/NavePnow/nave.work/status.svg)](https://david-dm.org/NavePnow/nave.work) [![GitHub Total Stars](https://img.shields.io/badge/dynamic/json?label=GitHub%20Total%20Stars&query=%24.stars&url=https%3A%2F%2Fevan-github.herokuapp.com%2Fuser%2FNavePnow)](http://github.com/NavePnow) [![GitHub Total Forks](https://img.shields.io/badge/dynamic/json?label=GitHub%20Total%20Forks&query=%24.forks&url=https%3A%2F%2Fevan-github.herokuapp.com%2Fuser%2FNavePnow)](http://github.com/NavePnow)
+[![Build Status](https://travis-ci.org/NavePnow/nave.work.svg?branch=master)](https://travis-ci.org/NavePnow/nave.work) [![dependencies Status](https://david-dm.org/NavePnow/nave.work/status.svg)](https://david-dm.org/NavePnow/nave.work) [![Generic badge](https://img.shields.io/badge/dynamic/json?color=lightgray&label=Followers&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dgithub%26queryKey%3DNavePnow&logo=github)](https://t.me/Leped_Channel) [![Total Stars](https://img.shields.io/badge/dynamic/json?label=Total%20Stars&query=%24.stars&url=https%3A%2F%2Fevan-github.herokuapp.com%2Fuser%2FNavePnow&logo=github&color=lightgrey)](http://github.com/NavePnow) [![Total Forks](https://img.shields.io/badge/dynamic/json?label=Total%20Forks&query=%24.forks&url=https%3A%2F%2Fevan-github.herokuapp.com%2Fuser%2FNavePnow&logo=github&color=lightgrey)](http://github.com/NavePnow) [![Generic badge](https://img.shields.io/badge/dynamic/json?color=blue&label=Channel&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dtelegram%26queryKey%3DLeped_Channel&logo=telegram)](https://t.me/Leped_Channel)
+
+
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](http://github.com/NavePnow)
 
 ## **About me**
 
